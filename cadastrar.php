@@ -19,7 +19,7 @@ try{
         throw new Exception("As senhas não coincidem");
     }
     $usuario = new usuario(
-       $conexao
+        $conexao,
         ($_POST['usuario_id']),
         ($_POST['endereço']),
         ($_POST['telefone']),
