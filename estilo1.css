@@ -1,0 +1,135 @@
+body {
+margin: 0;
+padding: 0;
+background-image: url(../img/img3.png);
+background-size: cover;
+background-size: center;
+}
+
+.container{
+width: 100%;
+height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.login-form{
+    background-color: rgba(249, 88, 235, 0.979);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 280px;
+}
+
+.login-form h1{
+margin-bottom: 10px;
+
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+padding: 10px;
+margin-bottom: 10px;
+border-radius: 10px;
+border: 1px solid rgb(44, 105, 228);
+
+}
+
+.login-form button {
+padding: 10px;
+background-color: #2567ca;
+border: none;
+border-radius: 5px;
+color: white(42, 120, 202);
+cursor: pointer;
+}
+
+.login-form a{
+color: rgb(232, 29, 29);
+text-decoration: none;
+font-weight: bold;
+}
+*{box-sizing: border-box;}
+
+@media (max-width:1600px) {
+    .container{
+        width: 100%;
+        padding: 20px;
+    }
+body{
+    background-size: 1000px;
+}
+}
+
+@media (max-width:600px) {
+    .container{
+        width: 100%;
+        min-height: 70vh;
+        padding: 10px;
+    }
+
+
+.login-form h1,
+.cadastro-form h2 {
+    font-size: 1.5rem;
+}
+
+.cadastro-form input,
+.cadastro-form button,
+.login-form input,
+.login-form button,
+.select {
+width: 100%;
+margin-bottom: 4px;
+}
+
+label.radio-label {
+display: block;
+margin-bottom: 8px;
+}
+
+@media (max-width:480px) {
+    .container{
+        width: 100%;
+        padding: 10px;    
+}
+
+h2 {font-size: 1.1rem;
+}
+
+.cadastro-form input,
+.cadastro-form button,
+.login-form input,
+.login-form button{
+    font-size: 0.9;
+    padding: 8px;
+}
+
+.login-form input,
+.cadastro-form button{
+font-size: 0.9rem;
+padding: 8px;
+}
+}
+}
+
+@media (min-width:800px) and (max-width:1680px){
+.container {
+    width: 100%;
+    padding: 10px;
+}
+h1,h2 {
+font-size: 1.8rem;
+}
+.cadastro-form input,
+.cadastro-form button,
+.login-form input,
+.login-form button
+.select{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+
+}

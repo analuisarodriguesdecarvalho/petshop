@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/Cadastro.css">
+    <title>Cadastro PetShop</title>
+</head>
+
+
+    <body>
+    <form method="post" action="cadastrar.php"> 
+    <div class="container">
+    <div class="cadastro-form">
+
+    <h1>Cadastro</h1>
+<input type="text" placeholder="Nome Completo"> 
+<input type="text" placeholder="(99)9999-9999">
+<input type="text" placeholder="Endereço">
+<input type="email" placeholder="Email">
+<input type="text" placeholder="Senha">
+<input type="text" placeholder="Confirme Senha"> 
+
+
+<h2>Cadastro do Pet</h2>
+<div id="pets-container"> 
+<div class="pets-block"> 
+<input type="text" placeholder="Digite o nome do Pet" required></br></br>
+
+<label>Sexo do Pet:</label>
+<label><input type="radio" id="Macho" name="sexo" value="Macho">Macho</label>
+<label><input type="radio" id="Femea" name="sexo" value="Femea">Fêmea</label></br></br>
+
+
+<label>Porte do Pet:</label></br>
+<label><input type="radio" id="Pequeno" name="Porte" value="Pequeno">Pequeno</label>
+<label><input type="radio" id="Medio" name="Porte" value="Medio">Médio</label>
+<label><input type="radio" id="Grande" name="Porte" value="Grande">Grande</label>
+
+<label>Raça</label>
+<select id="raca" name="raca">
+    <option value=""disable selected hidden>Selecione a raça </option>
+    <option value="SRD">SRD</option>
+    <option value="Akita">Akita</option>
+    <option value="Daschund">Daschund</option>
+</select></br></br>
+
+    <label for="foto_pet">Foto do Pet</label>
+    <input type="file" id="foto_pet" name="foto_pet" accept="image"></br></br>
+
+<button type="submit">Cadastrar</button>
+<button type="reset">Limpar</button>
+<button type="button" onclick="adicionarPet()" >&#10133 Adicionar Pet</button>
+
+
+</div> 
+</div>
+</fieldset>
+</div>
+</div>
+</form>
+<script>
+let contadorPets = 1;
+function adicionarPet(){
+    const container = document.getElementById('pets-container');
+    const originalBlock = container.querySelector('.petblock');
+    const novoBloco= originalBlock.cloneNode(true);
+
+    novoBloco.querySelector(['name']).forEach(input=>{
+        const name = input.getAttribute('name');
+        if (name.includes('pets[')){
+            input.setAttibute('name',name.replace(/pets\[\d+]/,`pets[${contadorPets}]`));
+        }else if (name.includes('pet_fotos[')){
+            input.setAttibut('name',`pet_fotos[${(contadorPets)}]`);
+        }
+        if(input.type!=='file' && input.type !=='radio' && input.type!=='checkbox'){
+            input.value ='';
+        }else if (input.type ==='radio'|| input.type ==='checkbox'){
+            input.checked= false;
+        }
+    });
+
+    const fileInput = novoBloco.querySelector('input[type="file"]');
+    const newFileId = `foto_pet_${contadorPets}`;
+    fileInput.id = newFileId;
+    fileInput.previousElementSibling.setAttibute('for',newFileId);
+    container.appendChild(novoBloco);
+    contadorPets++;
+}
+
+
+</script>
+</body>
+</html>
